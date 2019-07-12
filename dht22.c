@@ -401,6 +401,9 @@ static void process_results(struct work_struct *work)
 		humidity / 10,
 		humidity % 10);
 
+	sysfs_notify(dht22_kobj, NULL, "humidity");
+	sysfs_notify(dht22_kobj, NULL, "temperature");
+
 	retry = false;
 	cleanup_func(NULL);
 }
